@@ -34,18 +34,18 @@ Things you may want to cover:
 
 - has_many :massages
 - has_many :groups, throught: :groups_users
+- has_many :groups_users
 
 ## groupテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false, unique: true|
-|user_id|integer|null: false, unique: true|
-|massage_id|integer|null: false|
+|name|string|null: false, unique: true|
 
 ### Association
  - has_many :massages
  - has_many :users, throught: :groups_users
+ - has_many :groups_users
 
 ## groups_usersテーブル
 
@@ -63,6 +63,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |body|text|
+|imge|string|
 |user_id|integer||null: false, foreign_key: true|
 |group_id|integer||null: false, foreign_key: true|
 
