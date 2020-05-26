@@ -1,14 +1,12 @@
 * {
   box-sizing: border-box;
 }
-  .chat-space{
-    height: 100vh;
-    width: 100vw;
-    display: flex;
+  
     .chat-main{
       height: 100vh;
       width: calc(100vw - 300px);
       background-color:#ffffff;
+      float: left;
       &__group-info{
         height: 100px;
         width: 100%;
@@ -114,9 +112,10 @@
       }
     }
   
-    .side-ber{
+    .side-bar{
       height: 100vh;
       width: 300px;
+      float: left;
       background-color: #253141;
       &__user-name{
         height: 100px;
@@ -167,6 +166,7 @@
              padding-top: 20px;
              padding-bottom: 5px;
              text-decoration: none;
+             display: block;
            }
            &--comment{
              font-size: 11px;
@@ -178,7 +178,7 @@
         }
       }
     }
-  }
+  
 
  
 

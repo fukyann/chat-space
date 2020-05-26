@@ -1,23 +1,19 @@
-.side-ber
-  .side-ber__user-name
+.side-bar
+  .side-bar__user-name
     .top-items
       .top-items__name
         = current_user.name
       .top-items__icon
-        = link_to edit_user_path(current_user), class: "top-items__icon top-items__icon--btn" do
+        = link_to new_group_path, class: "top-items__icon top-items__icon--btn" do
           %i.far.fa-edit
-        = link_to "#", class: "top-items__icon top-items__icon--btn" do
+        = link_to edit_user_path(current_user), class: "top-items__icon top-items__icon--btn" do
           %i.fa.fa-cog
       
-  .side-ber__group-list
-    .side-ber__group-list--chart
-      = link_to "#", class: "side-ber__group-list--chart--title" do
-        text
-      .side-ber__group-list--chart--comment
-        text
-    .side-ber__group-list--chart
-      = link_to "#", class: "side-ber__group-list--chart--title" do
-        text
-      .side-ber__group-list--chart--comment
-        text
-  
+  .side-bar__group-list
+    .side-bar__group-list--chart
+      - current_user.groups.each do |group|
+        .group
+          = link_to "#", class:"side-bar__group-list--chart--title" do
+            = group.name
+            .side-bar__group-list--chart--comment
+              メッセージはまだありません。 
