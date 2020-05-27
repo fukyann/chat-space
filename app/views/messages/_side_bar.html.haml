@@ -13,7 +13,7 @@
     .side-bar__group-list--chart
       - current_user.groups.each do |group|
         .group
-          = link_to "#", class:"side-bar__group-list--chart--title" do
+          = link_to group_messages_path(group), class:"side-bar__group-list--chart--title" do
             = group.name
-            .side-bar__group-list--chart--comment
-              メッセージはまだありません。 
+          .side-bar__group-list--chart--comment
+            = group.show_last_message

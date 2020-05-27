@@ -2,11 +2,12 @@
   .chat-main__group-info
     .chat-main__group-info--title
       text
-      %ul.chat-main__group-info--title-list
+      = @group.name
+      .chat-main__group-info--title-list
         Member :
-        %li<
-          .chat-main__group-info--title-list--name
-            fukuyama
+        .chat-main__group-info--title-list--name
+          - @group.users.each do |user|
+            = user.name
     .chat-main__group-info--edit
       = link_to "#", class:"chat-main__group-info--edit chat-main__group-info--edit--btn" do
         Edit
@@ -17,23 +18,17 @@
       .chat-main__massage-list--name--deta
         2020/05/22(fri) 21:42:00
     .chat-main__massage-list--coment
-      こんばんは
-    .chat-main__massage-list--name
-      fukuyama
-      .chat-main__massage-list--name--deta
-        2020/05/22(fri) 21:42:00
-    .chat-main__massage-list--coment
-      おはようございます
-    
-  .chat-main__massage-from    
-    .chat-main__massage-from--coment
-      %input.chat-main__massage-from--coment-text{:type => "text", :placeholder => "type a message"}      
-      %label{class: "chat-main__massage-from--coment-image"}
-        = icon('far','image',)
-        %input{class: "chat-main__massage-from--coment-image-btn",type: "file"}
-    %input.chat-main__massage-from--submit{:type => "submit",:value => "Send"}
+    .messages
+    = render @messages
       
+  .chat-main__massage-from
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'chat-main__massage-from-text', placeholder: 'type a message'
+      = f.label :image, class: 'chat-main__massage-from-image' do
+        = icon('far', 'image',)
+        = f.file_field :image, class: 'chat-main__massage-from-image-btn'
+      = f.submit 'Send', class: 'chat-main__massage-from-submit'
 
+
+   
   
-    
-    
