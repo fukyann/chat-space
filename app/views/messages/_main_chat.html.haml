@@ -1,7 +1,6 @@
 .chat-main
   .chat-main__group-info
     .chat-main__group-info--title
-      text
       = @group.name
       .chat-main__group-info--title-list
         Member :
@@ -9,15 +8,10 @@
           - @group.users.each do |user|
             = user.name
     .chat-main__group-info--edit
-      = link_to "#", class:"chat-main__group-info--edit chat-main__group-info--edit--btn" do
+      = link_to edit_group_path(@group), class:"chat-main__group-info--edit chat-main__group-info--edit--btn" do
         Edit
 
   .chat-main__massage-list
-    .chat-main__massage-list--name
-      fukuyama
-      .chat-main__massage-list--name--deta
-        2020/05/22(fri) 21:42:00
-    .chat-main__massage-list--coment
     .messages
     = render @messages
       
