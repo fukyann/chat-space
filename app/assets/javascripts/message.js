@@ -17,7 +17,7 @@ $(function(){
         </p>
         <img class="chat-main__massage-list--image" src=${message.image}>  
       </div>
-      `
+      ` 
       return html;
     } else {
       var html =
